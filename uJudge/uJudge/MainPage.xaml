@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:uJudge"
+             x:Class="uJudge.MainPage" Title="uJudge">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="redButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#cc0000"/>
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <Setter Property="BorderRadius" Value="20"/>
+            </Style>
+            <Style x:Key="blueButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#004d99"/>
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <Setter Property="BorderRadius" Value="20"/>
+            </Style>
+            <LayoutOptions x:Key="leftHorzOptions"
+                           Alignment="Start" />
+            <LayoutOptions x:Key="rightHorzOptions"
+                           Alignment="End" />
+
+            <LayoutOptions x:Key="vertOptions"
+                           Alignment="Center"
+                           Expands="True" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+            <Button Text="3" Grid.Row="1" Grid.Column="0" 
+                    Style="{StaticResource redButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
+            <Button Text="2" Grid.Row="2" Grid.Column="0" 
+                    Style="{StaticResource redButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
+            <Button Text="1" Grid.Row="3" Grid.Column="0" 
+                    Style="{StaticResource redButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
+
+            <Label Text="01" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
+            <Label Text="00" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" />
+            <Label Text="00" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" />
+            
+            <Label Text="#1" Grid.Row="0" Grid.Column="2" VerticalOptions="Center"/>           
+                
+            <Label Text="00" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" />
+            <Label Text="00" Grid.Row="2" Grid.Column="4" VerticalOptions="Center" />
+            <Label Text="00" Grid.Row="3" Grid.Column="4" VerticalOptions="Center" />
+
+            <Button Text="3" Grid.Row="1" Grid.Column="3" 
+                    Style="{StaticResource blueButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource rightHorzOptions}"/>
+            <Button Text="2" Grid.Row="2" Grid.Column="3" 
+                    Style="{StaticResource blueButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource rightHorzOptions}"/>
+            <Button Text="1" Grid.Row="3" Grid.Column="3" 
+                    Style="{StaticResource blueButton}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource rightHorzOptions}"/>
+        </Grid>
+        </ContentPage.Content>
+
+</ContentPage>
