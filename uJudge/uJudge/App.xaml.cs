@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using uJudge.Model;
 using Xamarin.Forms;
 
 namespace uJudge
 {
 	public partial class App : Application
 	{
-		public App ()
+        BlueFighterScores blueFighterScores { get; }
+        RedFighterScores redFighterScores { get; }
+
+        public App ()
 		{
-			InitializeComponent();
+            blueFighterScores = new BlueFighterScores();
+            redFighterScores = new RedFighterScores();
+
+            InitializeComponent();
 
 			MainPage = new uJudge.MainPage();
 		}

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:uJudge"
+             xmlns:model="clr-namespace:uJudge.Model;assembly=uJudge"
              x:Class="uJudge.MainPage" Title="uJudge">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,68 +16,125 @@
                 <Setter Property="TextColor" Value="WhiteSmoke" />
                 <Setter Property="BorderRadius" Value="20"/>
             </Style>
+
+            <Style x:Key="redLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#cc0000" />
+            </Style>
+            <Style x:Key="blueLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#004d99" />
+            </Style>
+
             <LayoutOptions x:Key="leftHorzOptions"
-                           Alignment="Start" />
+                           Alignment="Start" Expands="True"/>
             <LayoutOptions x:Key="rightHorzOptions"
-                           Alignment="End" />
+                           Alignment="End" Expands="True"/>
 
             <LayoutOptions x:Key="vertOptions"
                            Alignment="Center"
                            Expands="True" />
+
+         
+
         </ResourceDictionary>
     </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="25" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
-            <Button Text="3" Grid.Row="1" Grid.Column="0" 
+            <Button Text="3" Grid.Row="1" Grid.Column="0" Clicked="OnButtonClicked"
                     Style="{StaticResource redButton}"
                     VerticalOptions="{StaticResource vertOptions}"
-                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
-            <Button Text="2" Grid.Row="2" Grid.Column="0" 
+                    HorizontalOptions="{StaticResource leftHorzOptions}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Button>
+            <Button Text="2" Grid.Row="2" Grid.Column="0" Clicked="OnButtonClicked"
                     Style="{StaticResource redButton}"
                     VerticalOptions="{StaticResource vertOptions}"
-                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
-            <Button Text="1" Grid.Row="3" Grid.Column="0" 
+                    HorizontalOptions="{StaticResource leftHorzOptions}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Button>
+            <Button Text="1" Grid.Row="3" Grid.Column="0" Clicked="OnButtonClicked"
                     Style="{StaticResource redButton}"
                     VerticalOptions="{StaticResource vertOptions}"
-                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
+                    HorizontalOptions="{StaticResource leftHorzOptions}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Button>
 
-            <Label Text="01" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
-            <Label Text="00" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" />
-            <Label Text="00" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" />
+            <Label Text="{Binding ThreeSum, StringFormat='{00}'}" Grid.Row="1" Grid.Column="1" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource redLabel}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Label>
+
+            <Label Text="{Binding TwoSum, StringFormat='{00}'}" Grid.Row="2" Grid.Column="1" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource redLabel}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Label>
+            <Label Text="{Binding OneSum, StringFormat='{00}'}" Grid.Row="3" Grid.Column="1" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource redLabel}">
+                <Label.BindingContext>
+                    <model:RedFighterScores />
+                </Label.BindingContext>
+            </Label>
             
-            <Label Text="#1" Grid.Row="0" Grid.Column="2" VerticalOptions="Center"/>           
+            <Label Text="#1" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>           
                 
-            <Label Text="00" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" />
-            <Label Text="00" Grid.Row="2" Grid.Column="4" VerticalOptions="Center" />
-            <Label Text="00" Grid.Row="3" Grid.Column="4" VerticalOptions="Center" />
+            <Label Text="00" Grid.Row="1" Grid.Column="3" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource blueLabel}"/>
+            <Label Text="00" Grid.Row="2" Grid.Column="3" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource blueLabel}"/>
+            <Label Text="00" Grid.Row="3" Grid.Column="3" 
+                   VerticalOptions="{StaticResource vertOptions}" 
+                   Style="{StaticResource blueLabel}"/>
 
-            <Button Text="3" Grid.Row="1" Grid.Column="3" 
+            <Button Text="3" Grid.Row="1" Grid.Column="4" 
                     Style="{StaticResource blueButton}"
                     VerticalOptions="{StaticResource vertOptions}"
                     HorizontalOptions="{StaticResource rightHorzOptions}"/>
-            <Button Text="2" Grid.Row="2" Grid.Column="3" 
+            <Button Text="2" Grid.Row="2" Grid.Column="4" 
                     Style="{StaticResource blueButton}"
                     VerticalOptions="{StaticResource vertOptions}"
                     HorizontalOptions="{StaticResource rightHorzOptions}"/>
-            <Button Text="1" Grid.Row="3" Grid.Column="3" 
+            <Button Text="1" Grid.Row="3" Grid.Column="4" 
                     Style="{StaticResource blueButton}"
                     VerticalOptions="{StaticResource vertOptions}"
                     HorizontalOptions="{StaticResource rightHorzOptions}"/>
+
+            <Image Source="icon.png" Grid.Row="2" Grid.Column="2" VerticalOptions="{StaticResource vertOptions}"/>
+
+            <Button Text="Reset" Grid.Row="4" Grid.Column="2" 
+                    VerticalOptions="{StaticResource vertOptions}"
+                    HorizontalOptions="{StaticResource leftHorzOptions}"/>
         </Grid>
         </ContentPage.Content>
 

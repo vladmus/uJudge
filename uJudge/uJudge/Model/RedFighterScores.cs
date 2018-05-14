@@ -4,7 +4,7 @@ using System.Text;
 
 namespace uJudge.Model
 {
-    class RedFighterScores:BaseFighterScores
+    public class RedFighterScores:BaseFighterScores
     {
     }
 }
